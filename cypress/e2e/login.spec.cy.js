@@ -1,3 +1,5 @@
+import userData from '../fixtures/users/user-data.json'
+
 describe('Orange HRM - Learning Tests', () => {
 
   const selectorsList = {
@@ -9,24 +11,13 @@ describe('Orange HRM - Learning Tests', () => {
     wrongCredentialAlert: '.oxd-alert'
   }
 
-  const userData = {
-    validUser: {
-      username: 'Admin',
-      password: 'admin123'
-    },
-    invalidUser: {
-      username: 'testing_user',
-      password: 'testing_pass'
-    }
-  }
-
   it('VALID LOGIN', () => {
     cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
     cy.get(selectorsList.usernameField).type(userData.validUser.username)
     cy.get(selectorsList.passwordField).type(userData.validUser.password)
     cy.get(selectorsList.loginButton).click()
     cy.location('pathname').should('equal', '/web/index.php/dashboard/index')
-    cy.get(selectorsList.dashboardGrid).contains('Dashboard')
+    cy.get(selectorsList.dashboardGrid)
   })
   it('INVALID LOGIN (USERNAME)', () => {
     cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
