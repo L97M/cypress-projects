@@ -12,15 +12,15 @@ describe('Orange HRM - Learning Tests', () => {
   }
 
   it('VALID LOGIN', () => {
-    cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
+    cy.visit('/auth/login')
     cy.get(selectorsList.usernameField).type(userData.validUser.username)
     cy.get(selectorsList.passwordField).type(userData.validUser.password)
     cy.get(selectorsList.loginButton).click()
     cy.location('pathname').should('equal', '/web/index.php/dashboard/index')
     cy.get(selectorsList.dashboardGrid)
   })
-  it('INVALID LOGIN (USERNAME)', () => {
-    cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
+  it('INVALID LOGIN', () => {
+    cy.visit('/auth/login')
     cy.get(selectorsList.usernameField).type(userData.invalidUser.username)
     cy.get(selectorsList.passwordField).type(userData.invalidUser.password)
     cy.get(selectorsList.loginButton).click()
