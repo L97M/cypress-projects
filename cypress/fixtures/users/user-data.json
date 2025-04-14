@@ -5,6 +5,6 @@
     },
     "invalidUser": {
         "username": "testing_username",
-        "password": "testing_passwords"
+        "password": "testing_password"
     }
 }
