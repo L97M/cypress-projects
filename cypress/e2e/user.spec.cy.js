@@ -15,7 +15,9 @@ describe('Orange HRM - Learning Tests', () => {
     lastNameField: '[name="lastName"]',
     genericField: '.oxd-input',
     dateField: '[placeholder="yyyy-dd-mm"]',
-    saveButton: '[type="submit"]'
+    dateCloseButton: '.--close',
+    saveButton: '[type="submit"]',
+    genericDropDownField: '.oxd-select-text--active'
   }
 
   it.only('VALID LOGIN', () => {
@@ -33,6 +35,11 @@ describe('Orange HRM - Learning Tests', () => {
     cy.get(selectorsList.genericField).eq(5).clear().type('OtherID')
     cy.get(selectorsList.genericField).eq(6).clear().type('DriverLicense')
     cy.get(selectorsList.dateField).eq(0).clear().type('2025-04-14')
+    cy.get(selectorsList.dateCloseButton).click()
+    cy.get(selectorsList.genericDropDownField).eq(0).click()
+    cy.contains('Brazilian').click()
+    cy.get(selectorsList.genericDropDownField).eq(1).click()
+    cy.contains('Married').click()
     cy.get(selectorsList.saveButton).eq(0).click()
     cy.get('body').should('contain', 'Successfully Updated')
   })
