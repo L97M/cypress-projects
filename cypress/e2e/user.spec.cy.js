@@ -10,7 +10,7 @@ const myInfo = new myInfoPage()
 const menu = new menuPage()
 
 describe('Orange HRM - Learning Tests', () => {
-  it.only('VALID LOGIN', () => {
+  it.only('UPDATE USER INFO [SUCCESS]', () => {
     login.accessLoginPage()
     login.loginWithUser(userData.validUser.username, userData.validUser.password)
     dashboard.validateLocation()
