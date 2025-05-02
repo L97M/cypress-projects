@@ -1,4 +1,4 @@
-import userData from '../fixtures/users/user-data.json'
+import userData from '../fixtures/users/userData.json'
 import loginPage from '../pages/loginPage.js'
 import dashboardPage from '../pages/dashboardPage.js'
 import myInfoPage from '../pages/myInfoPage.js'
@@ -10,19 +10,23 @@ const myInfo = new myInfoPage()
 const menu = new menuPage()
 
 describe('Orange HRM - Learning Tests', () => {
-  it.only('UPDATE USER INFO [SUCCESS]', () => {
+  it('LOGIN AND USER INFO UPDATE [SUCCESS]', () => {
     login.accessLoginPage()
-    login.loginWithUser(userData.validUser.username, userData.validUser.password)
+    login.loginWithUser(userData.validCredentials.username, userData.validCredentials.password)
     dashboard.validateLocation()
+
     menu.accessMyInfoPage()
-    myInfo.updateUserInfo()
+    
+    myInfo.fillUserNameFields(userData.userInfo.firstName, userData.userInfo.middleName, userData.userInfo.lastName)
+    myInfo.fillEmployeeInfo(userData.userInfo.employeeId, userData.userInfo.otherId, userData.userInfo.driversLicense, userData.userInfo.licenseExpiryDate)
+    myInfo.fillStatus(userData.userInfo.nacionality, userData.userInfo.maritalStatus)
+    
+    myInfo.saveForm()
   })
   
-  it('INVALID LOGIN', () => {
-    cy.visit('/auth/login')
-    cy.get(selectorsList.usernameField).type(userData.invalidUser.username)
-    cy.get(selectorsList.passwordField).type(userData.invalidUser.password)
-    cy.get(selectorsList.loginButton).click()
-    cy.get(selectorsList.wrongCredentialAlert)
+  it.only('INVALID LOGIN ATTEMPT', () => {
+    login.accessLoginPage()
+    login.loginWithUser(userData.invalidCredentials.username, userData.invalidCredentials.password)
+    login.wrongLoginAlert()
   })
 })

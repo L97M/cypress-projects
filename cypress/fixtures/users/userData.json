@@ -1,0 +1,21 @@
+{
+    "validCredentials": {
+        "username": "Admin",
+        "password": "admin123"
+    },
+    "invalidCredentials": {
+        "username": "testing_username",
+        "password": "testing_password"
+    },
+    "userInfo": {
+        "firstName": "My",
+        "middleName": "Testing",
+        "lastName": "Name",
+        "employeeId": "empl. id",
+        "otherId": "other id",
+        "driversLicense": "15654897",
+        "licenseExpiryDate": "2025-05-10",
+        "nacionality": "Brazilian",
+        "maritalStatus": "Married"
+    }
+}

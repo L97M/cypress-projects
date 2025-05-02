@@ -14,19 +14,28 @@ class myInfoPage {
         return selectors
     }
 
-    updateUserInfo() {
-        cy.get(this.selectorsList().firstNameField).clear().type('my')
-        cy.get(this.selectorsList().middleNameField).clear().type('full')
-        cy.get(this.selectorsList().lastNameField).clear().type('name')
-        cy.get(this.selectorsList().genericField).eq(4).clear().type('empl. id')
-        cy.get(this.selectorsList().genericField).eq(5).clear().type('other id')
-        cy.get(this.selectorsList().genericField).eq(6).clear().type('driver license id')
-        cy.get(this.selectorsList().dateField).eq(0).clear().type('2025-04-22')
+    fillUserNameFields(firstName, middleName, lastName) {
+        cy.get(this.selectorsList().firstNameField).clear().type(firstName)
+        cy.get(this.selectorsList().middleNameField).clear().type(middleName)
+        cy.get(this.selectorsList().lastNameField).clear().type(lastName)
+    }
+
+    fillEmployeeInfo(employeeId, otherId, driversLicense, licenseExpiryDate) {
+        cy.get(this.selectorsList().genericField).eq(4).clear().type(employeeId)
+        cy.get(this.selectorsList().genericField).eq(5).clear().type(otherId)
+        cy.get(this.selectorsList().genericField).eq(6).clear().type(driversLicense)
+        cy.get(this.selectorsList().dateField).eq(0).clear().type(licenseExpiryDate)
         cy.get(this.selectorsList().dateCloseButton).click()
+    }
+
+    fillStatus(nacionality, maritalStatus) {
         cy.get(this.selectorsList().genericDropDownField).eq(0).click()
-        cy.contains('pk12345').click()
+        cy.contains(nacionality).click()
         cy.get(this.selectorsList().genericDropDownField).eq(1).click()
-        cy.contains('Married').click()
+        cy.contains(maritalStatus).click()
+    }
+
+    saveForm() {
         cy.get(this.selectorsList().saveButton).eq(0).click()
         cy.get('body').should('contain', 'Successfully Updated')
     }
