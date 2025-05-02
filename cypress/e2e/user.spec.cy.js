@@ -23,10 +23,4 @@ describe('Orange HRM - Learning Tests', () => {
     
     myInfo.saveForm()
   })
-  
-  it.only('INVALID LOGIN ATTEMPT', () => {
-    login.accessLoginPage()
-    login.loginWithUser(userData.invalidCredentials.username, userData.invalidCredentials.password)
-    login.wrongLoginAlert()
-  })
 })

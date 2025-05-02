@@ -4,8 +4,8 @@
         "password": "admin123"
     },
     "invalidCredentials": {
-        "username": "testing_username",
-        "password": "testing_password"
+        "username": "wrong username",
+        "password": "wrong password"
     },
     "userInfo": {
         "firstName": "My",
