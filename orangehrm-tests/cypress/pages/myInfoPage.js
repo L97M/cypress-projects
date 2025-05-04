@@ -5,7 +5,7 @@ class myInfoPage {
             middleNameField: '[name="middleName"]',
             lastNameField: '[name="lastName"]',
             genericField: '.oxd-input',
-            dateField: '[placeholder="yyyy-mm-dd"]',
+            dateField: '.oxd-date-input',
             dateCloseButton: '.--close',
             saveButton: '[type="submit"]',
             genericDropDownField: '.oxd-select-text--active'
