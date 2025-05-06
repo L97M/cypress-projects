@@ -1,0 +1,10 @@
+{
+    "validUserCredentials": {
+        "username": "Heath93",
+        "password": "s3cret"
+    },
+    "invalidUserCredentials": {
+        "username": "Heath93",
+        "password": "invalid_s3cret"
+    }
+}
