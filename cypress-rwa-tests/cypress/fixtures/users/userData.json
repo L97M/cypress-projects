@@ -6,5 +6,11 @@
     "invalidUserCredentials": {
         "username": "Heath93",
         "password": "invalid_s3cret"
+    },
+    "registerUserInfo": {
+        "firstName": "testing first name",
+        "lastName": "testing last name",
+        "username": "testing user name",
+        "password": "s3cret"
     }
 }
