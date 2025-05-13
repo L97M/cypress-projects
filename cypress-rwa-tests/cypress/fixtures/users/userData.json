@@ -12,5 +12,10 @@
         "lastName": "testing last name",
         "username": "testing user name",
         "password": "s3cret"
+    },
+    "transactionContacts": {
+        "Ted": "Ted Parisian",
+        "Kristian": "Kristian Bradtke",
+        "Ruthie": "Ruthie Prosacco"
     }
 }
