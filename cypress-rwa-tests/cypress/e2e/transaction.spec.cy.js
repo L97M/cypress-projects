@@ -9,7 +9,11 @@ describe('Real World App - Testing Exercise', () => {
   it('MONEY TRANSFER [SUCCESS]', () => {
     login.accessLoginPage()
     login.loginWithAnyUser(userData.validUserCredentials.username, userData.validUserCredentials.password)
+
     transaction.accesstransactionPage()
     transaction.selectContact(userData.transactionContacts.Ruthie)
+    transaction.paymentAction(50, 'testing note')
+    
+    transaction.validatePaymentAction(50, 'testing note')
   })
 })
