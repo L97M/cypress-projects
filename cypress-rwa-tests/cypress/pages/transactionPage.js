@@ -9,13 +9,16 @@ class transactionPage {
           paymentButton: "[data-test='transaction-create-submit-payment']",
           paymentConfirmedMessage: ".css-1hbmzt3-MuiGrid-root",
           anotherTransactionButton: "[data-test='new-transaction-create-another-transaction']",
-          returnToTransactionsButton: "[data-test='new-transaction-return-to-transactions']"
+          returnToTransactionsButton: "[data-test='new-transaction-return-to-transactions']",
+          userTransactionsHistoryButton: "[data-test='nav-personal-tab']",
+          transactionsHistoryGrid: "[data-test='transaction-list']",
+          emptyTransactionsHistoryMessage: "[data-test='empty-list-header']"
         }
 
         return selectors
     }
 
-    accesstransactionPage() {
+    accessTransactionPage() {
         cy.get(this.selectorsList().newTransactionButton).click()
     }
 
@@ -36,6 +39,18 @@ class transactionPage {
 
     validateInvalidPaymentAction() {
         cy.get(this.selectorsList().returnToTransactionsButton).should('not.exist')
+    }
+
+    accessUserTransactionsPage() {
+        cy.get(this.selectorsList().userTransactionsHistoryButton).click()
+    }
+
+    validateTransactionsHistory() {
+        cy.get(this.selectorsList().transactionsHistoryGrid).should('be.visible')
+    }
+
+    validateEmptyTransactionsHistory() {
+        cy.get(this.selectorsList().emptyTransactionsHistoryMessage).should('be.visible')
     }
 }
 
