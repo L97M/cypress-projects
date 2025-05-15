@@ -7,7 +7,9 @@ class transactionPage {
           amountField: "#amount",
           noteField: "[data-test='transaction-create-form']",
           paymentButton: "[data-test='transaction-create-submit-payment']",
-          paymentConfirmedMessage: ".css-1hbmzt3-MuiGrid-root"
+          paymentConfirmedMessage: ".css-1hbmzt3-MuiGrid-root",
+          anotherTransactionButton: "[data-test='new-transaction-create-another-transaction']",
+          returnToTransactionsButton: "[data-test='new-transaction-return-to-transactions']"
         }
 
         return selectors
@@ -30,6 +32,10 @@ class transactionPage {
 
     validatePaymentAction(value, note) {
         cy.get(this.selectorsList().paymentConfirmedMessage).should('contain', 'Paid $' + value.toFixed(2) + ' for ' + note)
+    }
+
+    validateInvalidPaymentAction() {
+        cy.get(this.selectorsList().returnToTransactionsButton).should('not.exist')
     }
 }
 
