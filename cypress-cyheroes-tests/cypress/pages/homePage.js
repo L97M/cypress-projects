@@ -1,17 +1,19 @@
-class loginPage {
+class homePage {
     selectorsList() {
         const selectors = {
           loginButton: "li > .undefined",
           emailField: "[data-cy='email']",
           passwordField: "[data-cy='password']",
           signInButton: ".text-white",
-          createHeroButton: "a > .undefined"
+          createHeroButton: "a > .undefined",
+          likeButton: "[data-cy='like']",
+          homePageGrid: "body"
         }
 
         return selectors
     }
 
-    accessLoginPage() {
+    accessHomePage() {
         cy.visit('')
         cy.get('.loader').should('not.exist')
     }
@@ -27,9 +29,12 @@ class loginPage {
         cy.get(this.selectorsList().createHeroButton).should('be.visible')
     }
 
-    // validateFailedLogin() {
-    //     cy.get(this.selectorsList().loginFailedAlert).should('contain', 'Username or password is invalid')
-    // }
+    notLoggedInLikeAction() {
+        cy.get(this.selectorsList().likeButton).eq(0).click()
+        cy.get(this.selectorsList().homePageGrid).should('contain', 'You must log in to like')
+    }
+
+
 }
 
-export default loginPage
+export default homePage
