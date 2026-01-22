@@ -6,7 +6,7 @@ const validUser = users.validUser
 const invalidUser = users.invalidUser
 
 describe('User Registration', () => {
-  it.only('should register a new user successfully when all required fields are filled with valid data', () => {
+  it('should register a new user successfully when all required fields are filled with valid data', () => {
     signUp.accessPage()
     
     signUp.fillBasicUserInfo(validUser)
