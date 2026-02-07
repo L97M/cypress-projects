@@ -1,19 +1,24 @@
 class loginPage {
     selectorsList() {
         const selectors = {
-          usernameField: "[name='username']",
-          passwordField: "[name='password']",
-          signInButton: "[type='submit']",
-          navBarGrid: "[data-test='sidenav']",
-          loginFailedAlert: "[data-test='signin-error']"
+            signInForm: ".SignInForm-form",
+            usernameField: "[name='username']",
+            passwordField: "[name='password']",
+            signInButton: "[type='submit']",
+            homeNavBarGrid: "[data-test='sidenav']",
+            loginFailedAlert: "[data-test='signin-error']"
         }
-
         return selectors
     }
 
     accessLoginPage() {
         cy.visit('')
         cy.get('.loader').should('not.exist')
+    }
+
+    validateLoginPage() {
+        cy.url().should('include', '/signin')
+        cy.get(this.selectorsList().signInForm).should('be.visible')
     }
 
     loginWithAnyUser(username, password) {
@@ -23,12 +28,11 @@ class loginPage {
     }
 
     validateSuccessLogin() {
-        cy.get(this.selectorsList().navBarGrid).should('be.visible')
+        cy.get(this.selectorsList().homeNavBarGrid).should('be.visible')
     }
 
     validateFailedLogin() {
         cy.get(this.selectorsList().loginFailedAlert).should('contain', 'Username or password is invalid')
     }
 }
-
 export default loginPage
