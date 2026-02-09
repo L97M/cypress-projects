@@ -14,7 +14,7 @@ describe('Login Feature', () => {
     login.validateSuccessLogin()
   })
 
-  it.only('should not log in when invalid credentials are provided', () => {
+  it('should not log in when invalid credentials are provided', () => {
     login.accessLoginPage()
 
     login.validateLoginPage()
