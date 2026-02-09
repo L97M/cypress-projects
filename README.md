@@ -3,7 +3,7 @@
 Repositório para documentar alguns projetos de estudo com Cypress, um framework baseado em JavaScript que possibilita realizar testes automatizados em diferentes navegadores.
 
 > [!TIP]
-> Estou criando algumas documentações sobre os projetos do repositório como, por exemplo, casos de teste e bug reports. Os documentos já criados estão disponíveis no Google Drive. Para acessar, [clique aqui](https://drive.google.com/drive/folders/19RgnkG3NE11X_dmw3xOuRka4162_Cmyq?usp=sharing).
+> Estou criando as documentações dos projetos do repositório. Os documentos atualizados estão disponíveis no Google Drive, contendo vídeos de rodadas de testes automatizados, casos de teste, entre outros. Para acessar, [clique aqui](https://drive.google.com/drive/folders/19RgnkG3NE11X_dmw3xOuRka4162_Cmyq?usp=sharing).
 
 > [!IMPORTANT]
 > Para todos os projetos, é necessário ter o **NodeJS instalado**.
